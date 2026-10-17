@@ -1,0 +1,39 @@
+ASan + UBSan: models, Arduino/Wire compatibility, vendor drivers, sensor adapters and session.
+LeakSanitizer OFF: upstream Adafruit_BMP3XX has lifetime I2C allocations without a freeing destructor; hardware uses one global instance. No leak-free claim.
+PASS MPU9255 physical stimulus through real driver
+PASS BMP388 pressure and temperature through vendor compensation
+PASS stopped BMP388 conversion is not a fresh sample
+PASS old conversion after a long gap is discarded
+PASS MPU9255 signs and configured ADC saturation
+PASS duplicate IMU read is not a new sample
+PASS independent barometer survives IMU bus NACK
+PASS MPU9250 is not silently accepted as MPU9255
+PASS BMP390 is not silently accepted as BMP388
+PASS corrupt BMP388 calibration is rejected
+PASS unready startup conversion is never published
+PASS BMP388 alternate I2C address works
+PASS ASan/UBSan flight_bmp_stopped
+PASS ASan/UBSan flight_imu_stopped
+PASS ASan/UBSan flight_noise
+PASS ASan/UBSan flight_nominal
+PASS ASan/UBSan flight_pressure_spike
+PASS ASan/UBSan flight_saturation
+PASS ASan/UBSan flight_unarmed
+PASS ASan/UBSan sit_bmp_nack
+PASS ASan/UBSan sit_bmp_short
+PASS ASan/UBSan sit_bmp_stopped
+PASS ASan/UBSan sit_imu_nack
+PASS ASan/UBSan sit_imu_short
+PASS ASan/UBSan sit_imu_stopped
+PASS ASan/UBSan sit_lift_3m
+PASS ASan/UBSan sit_lift_return
+PASS ASan/UBSan sit_pad
+PASS ASan/UBSan sit_pad_jolt
+PASS ASan/UBSan sit_pressure_spike
+PASS ASan/UBSan sit_rotate_x
+PASS ASan/UBSan sit_rotate_y
+PASS ASan/UBSan sit_rotate_z
+PASS ASan/UBSan sit_temperature
+PASS ASan/UBSan sut_clean
+PASS ASan/UBSan sut_disturbed
+PASS ASan/UBSan sut_stream_gap

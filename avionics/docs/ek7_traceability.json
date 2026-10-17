@@ -8,13 +8,16 @@
       "status": "kismi",
       "implementation": [
         "core/ek7.hpp",
-        "core/flight.hpp"
+        "core/flight.hpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
     },
     {
       "id": "EK7-002",
@@ -22,13 +25,16 @@
       "status": "kismi",
       "implementation": [
         "core/ek7.hpp",
-        "core/flight.hpp"
+        "core/flight.hpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
     },
     {
       "id": "EK7-003",
@@ -36,13 +42,16 @@
       "status": "kismi",
       "implementation": [
         "core/ek7.hpp",
-        "core/flight.hpp"
+        "core/flight.hpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
     },
     {
       "id": "EK7-004",
@@ -201,13 +210,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
     },
     {
       "id": "EK7-016",
@@ -230,13 +242,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
     },
     {
       "id": "EK7-018",
@@ -245,13 +260,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
     },
     {
       "id": "EK7-019",
@@ -260,13 +278,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
     },
     {
       "id": "EK7-020",
@@ -275,13 +296,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
     },
     {
       "id": "EK7-021",
@@ -318,13 +342,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
     },
     {
       "id": "EK7-024",
@@ -333,13 +360,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
     },
     {
       "id": "EK7-025",
@@ -348,13 +378,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
     },
     {
       "id": "EK7-026",
@@ -390,13 +423,16 @@
       "status": "yerel_yazilim",
       "implementation": [
         "core/ek7.hpp",
-        "core/flight.hpp"
+        "core/flight.hpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
     },
     {
       "id": "EK7-029",
@@ -405,13 +441,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
     },
     {
       "id": "EK7-030",
@@ -420,13 +459,16 @@
       "implementation": [
         "core/ek7.hpp",
         "core/flight.hpp",
-        "firmware/main.cpp"
+        "firmware/main.cpp",
+        "firmware/bmp388.hpp",
+        "sim/sensors.hpp"
       ],
       "evidence": [
+        "results/sensors/summary.json",
         "results/ek7/summary.json",
         "results/ek7/invariants.log"
       ],
-      "remaining": "Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
+      "remaining": "Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
     },
     {
       "id": "EK7-031",

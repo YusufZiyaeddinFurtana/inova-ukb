@@ -10,6 +10,7 @@ import subprocess
 import sys
 from ek7_device import command,encode,decode,FIELDS
 from run_sil import read_model,rotate,qinv,PAD,ROOT
+from source_manifest import source_hashes
 
 def euler(q):
     # Change both coordinate bases before extracting Euler Rz*Ry*Rx; never permute Euler angles.
@@ -125,8 +126,7 @@ def main():
                               synthetic_input_hz=10,official_compatibility_verified=False),
                  invariant_groups=sum(s.startswith('PASS ') for s in unit.stdout.splitlines()),
                  total=len(results),passed=sum(r['passed'] for r in results),cases=results,
-                 sources_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for d in ('core','tools','tests')
-                     for p in (ROOT/d).glob('*') if p.suffix in ('.hpp','.cpp','.py')},
+                 sources_sha256=source_hashes(),
                  hardware_tested=False,physical_release_enabled=False)
     (target/'summary.json').write_text(json.dumps(summary,indent=2))
     lines=['# EK-7 yerel protokol ve SUT sonuçları','',f"**{summary['invariant_groups']} test grubu; {summary['passed']}/{summary['total']} uçtan uca senaryo geçti.**",'',

@@ -1,5 +1,6 @@
 Processing esp32_bench (platform: espressif32@6.12.0; board: esp32dev; framework: arduino)
 --------------------------------------------------------------------------------
+Removing unused dependencies...
 Verbose mode can be enabled via `-v, --verbose` option
 CONFIGURATION: https://docs.platformio.org/page/boards/espressif32/esp32dev.html
 PLATFORM: Espressif 32 (6.12.0) > Espressif ESP32 Dev Module
@@ -15,6 +16,7 @@ Found 38 compatible libraries
 Scanning dependencies...
 Dependency Graph
 |-- Adafruit BMP3XX Library @ 2.1.6
+|-- Adafruit BusIO @ 1.17.4
 |-- TinyGPSPlus @ 1.1.0
 |-- LoRa @ 0.8.0
 |-- SPI @ 2.0.0
@@ -42,23 +44,23 @@ Archiving .pio/build/esp32_bench/libde2/libWire.a
 Indexing .pio/build/esp32_bench/lib59c/libSPI.a
 Indexing .pio/build/esp32_bench/libde2/libWire.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/Esp.cpp.o
-Archiving .pio/build/esp32_bench/lib4aa/libAdafruit BusIO.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/FirmwareMSC.cpp.o
 Archiving .pio/build/esp32_bench/lib513/libAdafruit BMP3XX Library.a
-Indexing .pio/build/esp32_bench/lib4aa/libAdafruit BusIO.a
+Archiving .pio/build/esp32_bench/lib4aa/libAdafruit BusIO.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/FunctionalInterrupt.cpp.o
-Archiving .pio/build/esp32_bench/lib26d/libTinyGPSPlus.a
-Indexing .pio/build/esp32_bench/lib513/libAdafruit BMP3XX Library.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/HWCDC.cpp.o
-Indexing .pio/build/esp32_bench/lib26d/libTinyGPSPlus.a
+Indexing .pio/build/esp32_bench/lib513/libAdafruit BMP3XX Library.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/HardwareSerial.cpp.o
+Indexing .pio/build/esp32_bench/lib4aa/libAdafruit BusIO.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/IPAddress.cpp.o
 Compiling .pio/build/esp32_bench/FrameworkArduino/IPv6Address.cpp.o
 Compiling .pio/build/esp32_bench/FrameworkArduino/MD5Builder.cpp.o
 Compiling .pio/build/esp32_bench/FrameworkArduino/Print.cpp.o
+Archiving .pio/build/esp32_bench/lib26d/libTinyGPSPlus.a
+Indexing .pio/build/esp32_bench/lib26d/libTinyGPSPlus.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/Stream.cpp.o
-Archiving .pio/build/esp32_bench/lib50a/libLoRa.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/StreamString.cpp.o
+Archiving .pio/build/esp32_bench/lib50a/libLoRa.a
 Indexing .pio/build/esp32_bench/lib50a/libLoRa.a
 Compiling .pio/build/esp32_bench/FrameworkArduino/Tone.cpp.o
 Compiling .pio/build/esp32_bench/FrameworkArduino/USB.cpp.o
@@ -101,8 +103,8 @@ Linking .pio/build/esp32_bench/firmware.elf
 Retrieving maximum program size .pio/build/esp32_bench/firmware.elf
 Checking size .pio/build/esp32_bench/firmware.elf
 Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
-RAM:   [=         ]   7.1% (used 23300 bytes from 327680 bytes)
-Flash: [===       ]  25.8% (used 338025 bytes from 1310720 bytes)
+RAM:   [=         ]   7.1% (used 23316 bytes from 327680 bytes)
+Flash: [===       ]  25.8% (used 338373 bytes from 1310720 bytes)
 Building .pio/build/esp32_bench/firmware.bin with action:
   "$PYTHONEXE" "$OBJCOPY" --chip esp32 elf2image --flash_mode ${__get_board_flash_mode(__env__)} --flash_freq ${__get_board_f_image(__env__)} --flash_size 4MB --elf-sha256-offset 0xb0 -o $TARGET $SOURCES
 Building .pio/build/esp32_bench/firmware.bin
@@ -110,4 +112,4 @@ esptool.py v4.9.0
 Creating esp32 image...
 Merged 2 ELF sections
 Successfully created esp32 image.
-========================= [SUCCESS] Took 5.42 seconds =========================
+========================= [SUCCESS] Took 15.12 seconds =========================

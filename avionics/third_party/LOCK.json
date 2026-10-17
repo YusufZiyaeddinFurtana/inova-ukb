@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Adafruit BMP3XX Library",
+    "version": "2.1.6",
+    "url": "https://github.com/adafruit/Adafruit_BMP3XX",
+    "local_path": "third_party/adafruit_bmp3xx",
+    "files_sha256": {
+      "Adafruit_BMP3XX.h": "d05e2c3b2b1caf41bf9997d9b647eba7eafbcb649167ea5be476307099c98def",
+      "Adafruit_BMP3XX.cpp": "9ed9c00d14e7887baeaa25789cc3e193fbeee4d9011773b5e6a9b56f0b263686",
+      "bmp3.h": "ebfe98ffca7b9a99dc40c02a90584cb5051cd3742eefb3736f841bb7cfbf0c93",
+      "bmp3.c": "2513b3b64ad0acd66e45292e577c729435d86cb63764fdca2c51d1760657758e",
+      "bmp3_defs.h": "182a5a918ccc049c1f178e127d94cf8edaa426505b21c1009d01b312e49c9ff8",
+      "LICENSE": "b65a30d8823172e7c08eede4e8d8bc37200c8fe93a046535055783af47277f6d"
+    }
+  },
+  {
+    "name": "Adafruit BusIO",
+    "version": "1.17.4",
+    "url": "https://github.com/adafruit/Adafruit_BusIO",
+    "local_path": "third_party/adafruit_busio",
+    "files_sha256": {
+      "Adafruit_I2CDevice.h": "88b843d7a44e3f974950d883649e5682f21d9f8ce135daff3a42d015f7cd27e7",
+      "Adafruit_I2CDevice.cpp": "317c342821f1df676a0e034f65685b4d6bf240d2ab8dcea91d18f1e063326d37",
+      "LICENSE": "86e9fafdb50d2a85d8fef369b4635b5a1b89160603e5b1f95484df0804b49508"
+    }
+  }
+]

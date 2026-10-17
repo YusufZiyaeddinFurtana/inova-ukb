@@ -6,6 +6,8 @@ Bu paket **ESP32 + BMP388 + MPU9255 + NEO-M8N + SX1278** için hazırlanmış bi
 
 ## İçindekiler
 
+- [Sensör uyarımı sonuçları ve grafik](results/sensors/SONUCLAR.md): 25 senaryo, gerçek sensör sürücüleri ve register modelleri.
+- [Sensör modelinin kapsamı](docs/SENSOR_SIMULASYONU.md): varsayımlar, yakalanan barometre hatası ve tekrar çalıştırma.
 - `core/flight.hpp`: basınç filtresi, eğim kestirimi, quaternion ile IMU dönüşümü, uçuş durumları ve kararlar.
 - `core/ek7.hpp`: SİT/SUT oturumları, komut ve sensör/durum paketleri, timeout, eksen/yönelim adaptörü.
 - `tools/run_ek7.py`: bağımsız ikili paketlerle sentetik uçuş; `tools/ek7_device.py`: kart geldiğinde gerçek RS232 ön test aracı.

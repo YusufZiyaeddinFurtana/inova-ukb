@@ -106,5 +106,46 @@ PASS jitter 0.8604031980000002
 PASS nominal_20hz 0.8034031980000016
 PASS nominal_50hz 0.7334031980000013
 PASS nominal_100hz 0.7334031980000013
+python3 tools/run_sensors.py
+make[1]: `build/sensor_tests' is up to date.
+make[1]: `build/sensor_replay' is up to date.
+PASS pinned native and ESP32 sensor driver source hashes
+PASS MPU9255 physical stimulus through real driver
+PASS BMP388 pressure and temperature through vendor compensation
+PASS stopped BMP388 conversion is not a fresh sample
+PASS old conversion after a long gap is discarded
+PASS MPU9255 signs and configured ADC saturation
+PASS duplicate IMU read is not a new sample
+PASS independent barometer survives IMU bus NACK
+PASS MPU9250 is not silently accepted as MPU9255
+PASS BMP390 is not silently accepted as BMP388
+PASS corrupt BMP388 calibration is rejected
+PASS unready startup conversion is never published
+PASS BMP388 alternate I2C address works
+PASS sit_pad {'final_altitude_msl_m': 970.0}
+PASS sit_lift_3m {'final_altitude_msl_m': 973.0}
+PASS sit_lift_return {'final_altitude_msl_m': 970.0, 'peak_altitude_msl_m': 973.0}
+PASS sit_rotate_x {'orientation_error_deg': 0.0, 'reported_angles_deg': [180.0, 90.0, 180.0]}
+PASS sit_rotate_y {'orientation_error_deg': 0.0, 'reported_angles_deg': [0.0, 0.0, 90.0]}
+PASS sit_rotate_z {'orientation_error_deg': 0.0, 'reported_angles_deg': [90.0, 0.0, 0.0]}
+PASS sit_temperature {'final_altitude_msl_m': 970.0, 'final_temperature_c': 35.0}
+PASS sit_pad_jolt {'final_altitude_msl_m': 970.0}
+PASS sit_pressure_spike {'final_altitude_msl_m': 970.0}
+PASS sit_imu_nack {}
+PASS sit_imu_short {}
+PASS sit_imu_stopped {}
+PASS sit_bmp_nack {}
+PASS sit_bmp_short {}
+PASS sit_bmp_stopped {}
+PASS flight_nominal {'release_time_s': 25.3, 'apogee_delay_s': 0.7534031980000009}
+PASS flight_noise {'release_time_s': 25.28, 'apogee_delay_s': 0.7334031980000013}
+PASS flight_unarmed {'release_time_s': None, 'apogee_delay_s': None}
+PASS flight_pressure_spike {'release_time_s': 25.3, 'apogee_delay_s': 0.7534031980000009}
+PASS flight_imu_stopped {'release_time_s': None, 'apogee_delay_s': None}
+PASS flight_bmp_stopped {'release_time_s': None, 'apogee_delay_s': None}
+PASS flight_saturation {'release_time_s': None, 'apogee_delay_s': None}
+PASS sut_clean {'release_time_s': 26.41, 'apogee_delay_s': 0.8534031979999988}
+PASS sut_disturbed {'release_time_s': 26.41, 'apogee_delay_s': 0.8534031979999988}
+PASS sut_stream_gap {'release_time_s': None, 'apogee_delay_s': None}
 python3 tools/check_ek7_traceability.py
 EK7 traceability: 63/63 IDs and evidence paths PASS; official compliance remains unverified

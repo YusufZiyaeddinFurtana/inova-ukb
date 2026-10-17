@@ -18,6 +18,7 @@ import sys
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 from decode_packet import decode
+from source_manifest import source_hashes
 
 ROOT=Path(__file__).resolve().parents[1]
 FIELDS='time_s,pressure_pa,ax,ay,az,gx,gy,gz,baro_new,imu_new,arm,truth_alt_m,truth_vz_m_s,radio_busy,gps_valid,latitude,longitude,battery_mv,reset'.split(',')
@@ -203,8 +204,7 @@ def main():
                  independent_run=dict(apogee_m=apo['altitude_m'],apogee_s=apo['time_s'],seed=20261017,recovery='suppressed',duration_s=30),
                  nominal=results[0],passed=sum(x['passed'] for x in results),total=len(results),cases=results,
                  scope='Open-loop software-in-the-loop, not electronics/RF/closed-loop recovery certification')
-    summary['sources_sha256']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
-        for folder in ('core','tools','tests') for p in (ROOT/folder).glob('*') if p.is_file() and p.suffix in ('.hpp','.cpp','.py','.java')}
+    summary['sources_sha256']=source_hashes()
     (ROOT/'results/summary.json').write_text(json.dumps(summary,indent=2))
     plot(nominal_rows,apogee)
     passed=summary['passed'];total=summary['total']

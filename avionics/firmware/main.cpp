@@ -11,6 +11,7 @@
 #include "ek7_profile.hpp"
 #include "board.hpp"
 #include "mpu9255.hpp"
+#include "bmp388.hpp"
 
 #ifndef INOVA_PHYSICAL_OUTPUT
 #define INOVA_PHYSICAL_OUTPUT 0
@@ -20,11 +21,11 @@ static_assert(INOVA_PHYSICAL_OUTPUT==0,"Physical release needs a reviewed circui
 static_assert(configTICK_RATE_HZ>=1000,"EK7 task requires 1ms RTOS scheduling");
 
 MPU9255 imu(Wire);
-Adafruit_BMP3XX baro;
 TinyGPSPlus gps;
 HardwareSerial gps_uart(2);
 HardwareSerial test_uart(1);
 TwoWire baro_wire(1);
+BMP388 baro(baro_wire);
 bool imu_ready=false,baro_ready=false,radio_ready=false;
 volatile bool transmitting=false;
 uint64_t last_tick=0,last_tx=0,tx_started=0;
@@ -55,8 +56,9 @@ void ek7Task(void*) {
 void barometerTask(void*) {
     TickType_t next=xTaskGetTickCount();
     for(;;) {
-        if(baro.performReading()) {
-            BaroReading reading{baro.pressure,static_cast<uint64_t>(esp_timer_get_time())};
+        double pressure=0,temperature=0;
+        if(baro.read(pressure,temperature)) {
+            BaroReading reading{pressure,static_cast<uint64_t>(esp_timer_get_time())};
             xQueueOverwrite(baro_queue,&reading);
         }
         vTaskDelayUntil(&next,pdMS_TO_TICKS(20));
@@ -73,13 +75,7 @@ void setup() {
     Wire.begin(board::imu_sda,board::imu_scl,400000);Wire.setTimeOut(5);
     baro_wire.begin(board::baro_sda,board::baro_scl,400000);baro_wire.setTimeOut(5);
     imu_ready=imu.begin();
-    baro_ready=baro.begin_I2C(0x77,&baro_wire);
-    if(!baro_ready)baro_ready=baro.begin_I2C(0x76,&baro_wire);
-    if(baro_ready) {
-        baro_ready=baro.chipID()==0x50 && baro.setPressureOversampling(BMP3_OVERSAMPLING_2X) &&
-            baro.setTemperatureOversampling(BMP3_NO_OVERSAMPLING) &&
-            baro.setIIRFilterCoeff(BMP3_IIR_FILTER_DISABLE) && baro.setOutputDataRate(BMP3_ODR_50_HZ);
-    }
+    baro_ready=baro.begin();
     sensor_queue=xQueueCreate(1,sizeof(inova::Sample));output_queue=xQueueCreate(1,sizeof(inova::Output));
     if(!sensor_queue || !output_queue || xTaskCreatePinnedToCore(ek7Task,"ek7",6144,nullptr,3,nullptr,0)!=pdPASS) {
         // Allocation failure cannot leave an apparently operational flight controller.

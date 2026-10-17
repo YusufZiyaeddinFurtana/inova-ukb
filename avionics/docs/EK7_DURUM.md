@@ -15,9 +15,9 @@ Her satırın ayrıntılı kaynak/uygulama/kanıt yolları `ek7_traceability.jso
 
 | Kimlik | Durum | Kanıt | Tam kabul için kalan |
 |---|---|---|---|
-| EK7-001 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi. |
-| EK7-002 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi. |
-| EK7-003 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi. |
+| EK7-001 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi. |
+| EK7-002 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi. |
+| EK7-003 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi. |
 | EK7-004 | Resmî teyit/test açık | [EK7_GEREKSINIMLER.md](../docs/EK7_GEREKSINIMLER.md) | Resmî masaüstü araç dosyası/sürümü ve hakem cihazında saha sonucu sağlanmadı. |
 | EK7-005 | Resmî teyit/test açık | [EK7_GEREKSINIMLER.md](../docs/EK7_GEREKSINIMLER.md) | Resmî masaüstü araç dosyası/sürümü ve hakem cihazında saha sonucu sağlanmadı. |
 | EK7-006 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler. |
@@ -29,22 +29,22 @@ Her satırın ayrıntılı kaynak/uygulama/kanıt yolları `ek7_traceability.jso
 | EK7-012 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler. |
 | EK7-013 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler. |
 | EK7-014 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler. |
-| EK7-015 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
+| EK7-015 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
 | EK7-016 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
-| EK7-017 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
-| EK7-018 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
-| EK7-019 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
-| EK7-020 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
+| EK7-017 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
+| EK7-018 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
+| EK7-019 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
+| EK7-020 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
 | EK7-021 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
 | EK7-022 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
-| EK7-023 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
-| EK7-024 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
-| EK7-025 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler. |
+| EK7-023 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
+| EK7-024 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi. |
+| EK7-025 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler. |
 | EK7-026 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
 | EK7-027 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
-| EK7-028 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
-| EK7-029 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler. |
-| EK7-030 | Yazılım + fiziksel teyit açık | [summary.json](../results/ek7/summary.json) | Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler. |
+| EK7-028 | Yerel yazılım geçti | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
+| EK7-029 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler. |
+| EK7-030 | Yazılım + fiziksel teyit açık | [summary.json](../results/sensors/summary.json) | Gerçek sürücülü register modeli ve sensör uyarımı dijitalde geçti. Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler. |
 | EK7-031 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
 | EK7-032 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
 | EK7-033 | Yerel yazılım geçti | [summary.json](../results/ek7/summary.json) | Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır. |
