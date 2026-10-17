@@ -1,0 +1,509 @@
+{
+  "profile": {
+    "floats": "little",
+    "data_status_checksum": "sum(header+payload) mod256",
+    "commands": "literal Table1",
+    "synthetic_input_hz": 10,
+    "official_compatibility_verified": false
+  },
+  "invariant_groups": 23,
+  "total": 18,
+  "passed": 18,
+  "cases": [
+    {
+      "name": "nominal",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.21,
+      "apogee_delay_s": 0.8534031980000023,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "fragmented",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.311,
+      "apogee_delay_s": 0.9544031980000014,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "real_sensor_noise",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true,
+        "decision_independent_of_real_sensors": true
+      },
+      "release_time_s": 26.21,
+      "apogee_delay_s": 0.8534031980000023,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "pressure_spike",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.21,
+      "apogee_delay_s": 0.8534031980000023,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "false_descent",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.21,
+      "apogee_delay_s": 0.8534031980000023,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "nan_pressure",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.21,
+      "apogee_delay_s": 0.8534031980000023,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "bad_checksum",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.21,
+      "apogee_delay_s": 0.8534031980000023,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "unarmed",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0
+      ]
+    },
+    {
+      "name": "accel_spike",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        31
+      ]
+    },
+    {
+      "name": "long_gap",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "timeout_normal": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "status_packets": 140,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7
+      ]
+    },
+    {
+      "name": "pressure_frozen",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        15
+      ]
+    },
+    {
+      "name": "arm_lost",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7
+      ]
+    },
+    {
+      "name": "altitude_frozen",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        15
+      ]
+    },
+    {
+      "name": "altitude_spike",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.21,
+      "apogee_delay_s": 0.8534031980000023,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "jitter",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.217,
+      "apogee_delay_s": 0.8604031980000002,
+      "status_packets": 341,
+      "input_hz": 10,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "nominal_20hz",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.16,
+      "apogee_delay_s": 0.8034031980000016,
+      "status_packets": 341,
+      "input_hz": 20,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "nominal_50hz",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.09,
+      "apogee_delay_s": 0.7334031980000013,
+      "status_packets": 341,
+      "input_hz": 50,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    },
+    {
+      "name": "nominal_100hz",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "valid_status_packets": true,
+        "reserved_and_drogue_zero": true,
+        "start_delay": true,
+        "ten_hz": true,
+        "stop_clears": true,
+        "decision": true,
+        "gates_recorded": true,
+        "main_status_reported": true
+      },
+      "release_time_s": 26.09,
+      "apogee_delay_s": 0.7334031980000013,
+      "status_packets": 341,
+      "input_hz": 100,
+      "milestones_seen": [
+        0,
+        1,
+        5,
+        7,
+        23,
+        151,
+        159
+      ]
+    }
+  ],
+  "sources_sha256": {
+    "core/telemetry.hpp": "a5e26b22fbcf7210c7a4d582d5a03d7637eeebb3d9b454b86f4421131443c1cd",
+    "core/flight.hpp": "c0fee2f027e9eadef8cacb498133a0dc42f04e168729f4db0d294d826ef07de0",
+    "core/ek7.hpp": "47d49948c053422fc5a129513d1d46960f8e2c98d9cb93c35f5be795e4a406c1",
+    "tools/package_build.py": "ca2e447928e11079594f736b0e9aa94fb628e27b78e4274f67817164899976a2",
+    "tools/check_ek7_traceability.py": "c7285076dd9892e2b7bfa65614081f2c783639616d6d0d22f3eab083d8d70fa1",
+    "tools/decode_packet.py": "d9ffcfbcc3e645161d57648d3a16d439397c800c9fabfefdbbcf33aa284d0c52",
+    "tools/run_sil.py": "151c356436f840588f076eb1e30ca8b2b72fdd2a57c101c14cefafa5679e3b9b",
+    "tools/ek7_replay.cpp": "d3df94b2e130bff725383b42e8c3fdd1ff14fe58a2cecf110715e35e99fc6229",
+    "tools/replay.cpp": "c83e5261f2a87ed6d26baab3f127ca8cfc07ef3e99bea5ad2ef89030fb336ad3",
+    "tools/run_ek7.py": "b817a9122df328990cf09c604270e65bd9ffcd277288f0b82c50db4e9e2f74e2",
+    "tools/ek7_device.py": "97d1db0a30a825d0da44f58814c55d9f5b357c7dfb7dcc38fe0cb3d916473f7a",
+    "tests/ek7_tests.cpp": "3c62b77fea2f755182da68a0c129030d93b4aa82c11532c891744c2fcdae436c",
+    "tests/test_ek7_device.py": "456f4f072d0f66e7e408e8fe0a866c4164c151ad53705824fc52ecbeebdcfa47",
+    "tests/core_tests.cpp": "64464561b8658a8d28d9f35ccc74968ea69c571e6802ae277dd4204541a54f07"
+  },
+  "hardware_tested": false,
+  "physical_release_enabled": false
+}

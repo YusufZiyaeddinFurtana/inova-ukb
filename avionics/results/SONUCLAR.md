@@ -17,7 +17,7 @@ Tüm replay zamanlarında ateşleme öncesi 5 saniyelik kalibrasyon/bekleme böl
 | baro_spike | deploy | GEÇTİ | 0.713 s |
 | baro_nan | deploy | GEÇTİ | 0.713 s |
 | baro_gap_short | deploy | GEÇTİ | 0.713 s |
-| baro_gap_apogee | deploy | GEÇTİ | 1.273 s |
+| baro_gap_apogee | deploy | GEÇTİ | 1.393 s |
 | imu_gap_short | deploy | GEÇTİ | 0.713 s |
 | baro_false_descent | deploy | GEÇTİ | 0.713 s |
 | accel_bias_in_flight | deploy | GEÇTİ | 0.713 s |
@@ -74,4 +74,4 @@ Tüm replay zamanlarında ateşleme öncesi 5 saniyelik kalibrasyon/bekleme böl
 
 Sanal sensörler analog bant genişliği, PCB, güç, montaj titreşimi, RF menzili ve elektromıknatısı doğrulamaz. OpenRocket yeniden örnekleme/enterpolasyon hatası vardır. Kurtarma açılması bu koşuya geri beslenmez. Komut sonrası yörünge gerçek iniş öngörüsü değildir.
 
-ESP32 hedef derlemesi ayrıca `firmware-build.log` ile değerlendirilir; masaüstü testinin geçmesi hedef derlemesinin geçtiği anlamına gelmez. Resmî TEKNOFEST EK-7 protokolü bu sürümde uygulanmadı.
+ESP32 hedef derlemesi ayrıca `firmware-build.log` ile değerlendirilir; masaüstü testinin geçmesi hedef derlemesinin geçtiği anlamına gelmez. EK-7 yerel protokol profili ve SİT/SUT testleri ayrıca `ek7/SONUCLAR.md` dosyasındadır; resmî cihaz uyumluluğu henüz doğrulanmadı.

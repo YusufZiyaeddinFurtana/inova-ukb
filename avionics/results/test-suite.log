@@ -1,0 +1,110 @@
+python3 tools/run_sil.py
+make[1]: Nothing to be done for `all'.
+Core invariants + all 272 single-bit packet corruptions: PASS
+PASS nominal release= 25.06 delay= 0.7134031979999982
+PASS no_noise release= 25.08 delay= 0.7334031979999978
+PASS gps_loss release= 25.06 delay= 0.7134031979999982
+PASS radio_stuck release= 25.06 delay= 0.7134031979999982
+PASS baro_spike release= 25.06 delay= 0.7134031979999982
+PASS baro_nan release= 25.06 delay= 0.7134031979999982
+PASS baro_gap_short release= 25.06 delay= 0.7134031979999982
+PASS baro_gap_apogee release= 25.74 delay= 1.393403197999998
+PASS imu_gap_short release= 25.06 delay= 0.7134031979999982
+PASS baro_false_descent release= 25.06 delay= 0.7134031979999982
+PASS accel_bias_in_flight release= 25.06 delay= 0.7134031979999982
+PASS unarmed release= None delay= None
+PASS baro_dead release= None delay= None
+PASS baro_frozen release= None delay= None
+PASS imu_dead release= None delay= None
+PASS imu_gap_armed release= None delay= None
+PASS late_arm release= None delay= None
+PASS accel_saturated release= None delay= None
+PASS gyro_saturated release= None delay= None
+PASS boot_invalid release= None delay= None
+PASS arm_lost release= None delay= None
+PASS reset_in_flight release= None delay= None
+PASS clock_reversed release= None delay= None
+PASS pad_only release= None delay= None
+PASS pad_jolt release= None delay= None
+PASS monte_carlo_00 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_01 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_02 release= 25.12 delay= 0.7734031980000005
+PASS monte_carlo_03 release= 25.08 delay= 0.7334031979999978
+PASS monte_carlo_04 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_05 release= 25.14 delay= 0.793403198
+PASS monte_carlo_06 release= 25.08 delay= 0.7334031979999978
+PASS monte_carlo_07 release= 25.14 delay= 0.793403198
+PASS monte_carlo_08 release= 25.18 delay= 0.8334031979999992
+PASS monte_carlo_09 release= 25.14 delay= 0.793403198
+PASS monte_carlo_10 release= 25.08 delay= 0.7334031979999978
+PASS monte_carlo_11 release= 25.12 delay= 0.7734031980000005
+PASS monte_carlo_12 release= 25.08 delay= 0.7334031979999978
+PASS monte_carlo_13 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_14 release= 25.08 delay= 0.7334031979999978
+PASS monte_carlo_15 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_16 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_17 release= 25.14 delay= 0.793403198
+PASS monte_carlo_18 release= 25.08 delay= 0.7334031979999978
+PASS monte_carlo_19 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_20 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_21 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_22 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_23 release= 25.18 delay= 0.8334031979999992
+PASS monte_carlo_24 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_25 release= 25.2 delay= 0.8534031979999988
+PASS monte_carlo_26 release= 25.12 delay= 0.7734031980000005
+PASS monte_carlo_27 release= 25.12 delay= 0.7734031980000005
+PASS monte_carlo_28 release= 25.1 delay= 0.7534031980000009
+PASS monte_carlo_29 release= 25.12 delay= 0.7734031980000005
+RESULT: 55/55
+python3 tools/run_ek7.py
+make[1]: Nothing to be done for `all'.
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+
+OK
+PASS canonical_commands
+PASS explicit_checksum_profiles
+PASS float_endian_golden_vectors
+PASS 36_byte_measurement_roundtrip
+PASS all_288_single_bit_measurement_corruptions
+PASS all_40_single_bit_command_corruptions
+PASS split_frames_noise_and_back_to_back
+PASS 100ms_total_frame_timeout
+PASS one_second_start_and_stop_cancellation
+PASS ten_hz_without_bursts
+PASS SUT_1000ms_timeout_invalid_frames_do_not_refresh
+PASS SUT_real_sensor_isolation
+PASS SUT_repeated_run_calibration_10hz
+PASS SIT_real_data_MSL_mBar_axes_rounding
+PASS SIT_unavailable_data_is_NaN
+PASS proper_right_handed_axis_and_attitude_conversion
+PASS status_low_byte_first_reserved_zero
+PASS sparse_baro_values_do_not_break_real_calibration
+PASS bounded_parser_random_stream
+PASS data_payload_can_contain_command_markers
+PASS synthetic_full_flight_all_applicable_milestones
+PASS SIT_rotation_90deg_and_three_metre_response
+PASS test_commands_cannot_replace_real_flight
+EK7 invariants: PASS
+PASS nominal 0.8534031980000023
+PASS fragmented 0.9544031980000014
+PASS real_sensor_noise 0.8534031980000023
+PASS pressure_spike 0.8534031980000023
+PASS false_descent 0.8534031980000023
+PASS nan_pressure 0.8534031980000023
+PASS bad_checksum 0.8534031980000023
+PASS unarmed None
+PASS accel_spike None
+PASS long_gap None
+PASS pressure_frozen None
+PASS arm_lost None
+PASS altitude_frozen None
+PASS altitude_spike 0.8534031980000023
+PASS jitter 0.8604031980000002
+PASS nominal_20hz 0.8034031980000016
+PASS nominal_50hz 0.7334031980000013
+PASS nominal_100hz 0.7334031980000013
+python3 tools/check_ek7_traceability.py
+EK7 traceability: 63/63 IDs and evidence paths PASS; official compliance remains unverified

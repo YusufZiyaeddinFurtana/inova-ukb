@@ -1,0 +1,892 @@
+{
+  "date": "2026-10-17",
+  "official_compliance": false,
+  "requirements": [
+    {
+      "id": "EK7-001",
+      "requirement": "Barometrik irtifa, ivme ve yönelim gibi uçuş ölçümleri toplanmalı; ana algoritmada filtrelenip işlenmeli; kurtarma başlayıncaya kadar geri besleme sürekli sürmeli.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
+    },
+    {
+      "id": "EK7-002",
+      "requirement": "Tepe noktasına ulaşma/geçme ve önceden belirlenmiş iniş koşullarında kurtarma kararı değerlendirilerek uygun çıkış oluşturulmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
+    },
+    {
+      "id": "EK7-003",
+      "requirement": "Gövde ekseni sağ elli, referansı ağırlık merkezi; +X burun, +Y sağ taraf, +Z aşağı yön tanımıyla uyumlu olmalı. Roll X, pitch Y, yaw Z etrafındadır. SİT/SUT ivme ve açı alanları bu eksenlerde yorumlanmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Gerçek sensör/eksen, sürekli çalışma ve fiziksel kurtarma ölçümleri; Euler/ivme referansı teyidi."
+    },
+    {
+      "id": "EK7-004",
+      "requirement": "Özgün UKB resmî alandaki SİT ve SUT değerlendirmesinden geçmeli; dijital yerel test tek başına uçuş izni sağlamaz.",
+      "status": "resmi_bekliyor",
+      "implementation": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_GEREKSINIMLER.md"
+      ],
+      "remaining": "Resmî masaüstü araç dosyası/sürümü ve hakem cihazında saha sonucu sağlanmadı."
+    },
+    {
+      "id": "EK7-005",
+      "requirement": "Takım, KTR sonrasında sağlanacağı belirtilen resmî masaüstü yazılımıyla haberleşme ve test süreçlerini önceden doğrulamaya hazır olmalı.",
+      "status": "resmi_bekliyor",
+      "implementation": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_GEREKSINIMLER.md"
+      ],
+      "remaining": "Resmî masaüstü araç dosyası/sürümü ve hakem cihazında saha sonucu sağlanmadı."
+    },
+    {
+      "id": "EK7-006",
+      "requirement": "UKB test arayüzünü sürekli dinlemeli; test cihazının başlatma/durdurma komutlarına göre modu seçmeli. SİT ve SUT birlikte aktif olmamalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-007",
+      "requirement": "SİT başlatma komutu AA 20 8C 0D 0A tanınmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-008",
+      "requirement": "SUT başlatma komutu AA 22 8E 0D 0A tanınmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-009",
+      "requirement": "Durdur komutu AA 24 90 0D 0A tanınmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-010",
+      "requirement": "Komut alan sırası Header, Command, Checksum, 0D, 0A; komutun doğruluğu başlamadan doğrulanmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-011",
+      "requirement": "Geçerli SİT başlatma komutu onaylandıktan 1 saniye sonra SİT aktifleşmeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-012",
+      "requirement": "Geçerli SUT başlatma komutu onaylandıktan 1 saniye sonra SUT aktifleşmeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-013",
+      "requirement": "Durdur tüm test bayraklarını temizlemeli, testi bitirmeli, test veri gönderimini durdurmalı ve normal moda dönmeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-014",
+      "requirement": "Normal moda döndükten sonra yeni test yapılabilmeli; SUT farklı profillerle tekrarlanabilmeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Tablo1 sabitleri yerelde doğrulandı; gerçek seri hat ve resmî cihazla kabul testi bekler."
+    },
+    {
+      "id": "EK7-015",
+      "requirement": "SİT yalnız test cihazına ölçüm iletimi yapmalı; veri kaynağı gerçek sensörler olmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+    },
+    {
+      "id": "EK7-016",
+      "requirement": "Sensör paketi AB başlığıyla başlamalı, aşağıdaki sekiz FLOAT32 alanı verilen sırada taşımalı, bir checksum ve 0D 0A ile bitmeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-017",
+      "requirement": "İrtifa metre / deniz seviyesi referanslı (MSL) olmalı. Yer başlangıcına göre AGL ile karıştırılmamalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+    },
+    {
+      "id": "EK7-018",
+      "requirement": "Basınç mBar olmalı; BMP388'in Pa çıkışı arayüze doğru dönüştürülmeli.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+    },
+    {
+      "id": "EK7-019",
+      "requirement": "İvme X/Y/Z m/s² olarak ve resmî gövde eksenlerinde taşınmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+    },
+    {
+      "id": "EK7-020",
+      "requirement": "Açı X/Y/Z derece olarak taşınmalı; jiroskopun derece/saniye veya rad/saniye ölçümü açı yerine gönderilemez.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+    },
+    {
+      "id": "EK7-021",
+      "requirement": "Sekiz sayısal alanın her biri 4 bayt FLOAT32 olmalı. ASCII metin, float64 veya ölçekli tamsayı bu paketin yerine geçmez.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-022",
+      "requirement": "FLOAT alanlar iki ondalık basamağa sınırlandırılmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-023",
+      "requirement": "SİT paketleri 10 Hz, yani nominal 100 ms aralıkla gönderilmeli.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+    },
+    {
+      "id": "EK7-024",
+      "requirement": "Ölçümlerin ve varsa filtrelemenin tepkisi gerçek zamanlı izlenebilmeli; ani hareket, eğim ve yaklaşık 2–3 m irtifa değişimi testi uygulanabilmeli.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "SİT gerçek kartta üç eksen/90 derece/2–3 m testleri; saha MSL referansı, gerçek zamanlama ve açı/ivme tanımı teyidi."
+    },
+    {
+      "id": "EK7-025",
+      "requirement": "SUT'ta gerçek sensör ölçümleri karar girişinden çıkarılmalı; RS232 sentetik verileri sensör ölçümü kabul edilmeli.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
+    },
+    {
+      "id": "EK7-026",
+      "requirement": "Sentetik girdi Tablo 4'teki AB + sekiz FLOAT32 + checksum + 0D 0A biçiminde alınmalı; alan sırası/birim/eksen Tablo 2 ile aynı olmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-027",
+      "requirement": "Komut başlığı AA, sentetik ölçüm başlığı AB ayrımı yapılmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-028",
+      "requirement": "Sentetik veriler aynı filtreleme ve ana uçuş algoritmasına girmeli; SUT'a özel sahte karar dizisi üretilmemeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-029",
+      "requirement": "Normal profillerde önceden belirlenen koşullarda kurtarma/ayrılma sinyali doğru üretilmeli.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
+    },
+    {
+      "id": "EK7-030",
+      "requirement": "Ani/uygunsuz ivme, basınç değişimi gibi anormal profillerde filtreleme ve hata yönetimi değerlendirmeye dayanmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Kaynak izolasyonu/normal-anormal uçuş dijitalde sınandı; gerçek sensör ve gerçek çıkış ölçümü bekler."
+    },
+    {
+      "id": "EK7-031",
+      "requirement": "Durum paketi yalnız SUT sırasında gönderilmeli; SUT bitince kesilmeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-032",
+      "requirement": "Durum verisi 16 bit / 2 payload baytı olmalı; bit anlamları Tablo 5 ile eşleşmeli. İlk sekiz bit Data1, ikinci sekiz bit Data2.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-033",
+      "requirement": "Durum paketinin alan sırası AA, Data1, Data2, checksum, 0D, 0A olmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-034",
+      "requirement": "Durum bitindeki 1 ilgili aşama/işlevin aktif/işlenmiş olduğunu, 0 henüz gerçekleşmediğini göstermeli; gerçek algoritma aşamalarına dayanmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-035",
+      "requirement": "SUT durum paketi 10 Hz gönderilmeli; Durdur gelene kadar sürmeli; timeout güvenli sonlandırması ayrıca uygulanmalı.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-036",
+      "requirement": "Tekrarlı SUT'lar farklı normal/anormal uçuş profillerini işleyebilmeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Yerel profilde geçti. Checksum/float/A1 eşlemesi ve resmî test cihazı kabulü ortak açık kayıttır."
+    },
+    {
+      "id": "EK7-037",
+      "requirement": "0",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Olay/eşik bitleri ve rezerve sıfır test edildi. Sahadaki sinyal ve yerel eşik kabulü bekler."
+    },
+    {
+      "id": "EK7-038",
+      "requirement": "1",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Olay/eşik bitleri ve rezerve sıfır test edildi. Sahadaki sinyal ve yerel eşik kabulü bekler."
+    },
+    {
+      "id": "EK7-039",
+      "requirement": "2",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Olay/eşik bitleri ve rezerve sıfır test edildi. Sahadaki sinyal ve yerel eşik kabulü bekler."
+    },
+    {
+      "id": "EK7-040",
+      "requirement": "3",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Olay/eşik bitleri ve rezerve sıfır test edildi. Sahadaki sinyal ve yerel eşik kabulü bekler."
+    },
+    {
+      "id": "EK7-041",
+      "requirement": "4",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Olay/eşik bitleri ve rezerve sıfır test edildi. Sahadaki sinyal ve yerel eşik kabulü bekler."
+    },
+    {
+      "id": "EK7-042",
+      "requirement": "5",
+      "status": "resmi_bekliyor",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "A1 tek kurtarma geçici olarak bit7; bit5 sıfır. Bit/kanal eşlemesi için resmî teyit şart."
+    },
+    {
+      "id": "EK7-043",
+      "requirement": "6",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Olay/eşik bitleri ve rezerve sıfır test edildi. Sahadaki sinyal ve yerel eşik kabulü bekler."
+    },
+    {
+      "id": "EK7-044",
+      "requirement": "7",
+      "status": "resmi_bekliyor",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "A1 tek kurtarma geçici olarak bit7; bit5 sıfır. Bit/kanal eşlemesi için resmî teyit şart."
+    },
+    {
+      "id": "EK7-045",
+      "requirement": "8–15",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Olay/eşik bitleri ve rezerve sıfır test edildi. Sahadaki sinyal ve yerel eşik kabulü bekler."
+    },
+    {
+      "id": "EK7-046",
+      "requirement": "Test cihazıyla bağlantı RS232 olmalı.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-047",
+      "requirement": "UART 115200 bps, parite yok, 8 data biti, 1 stop biti (8N1) olmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log",
+        "results/firmware-build.log"
+      ],
+      "remaining": "115200 8N1, 1ms servis, 100ms frame/1000ms oturum yazılımı hazır. Gerçek hat/full-duplex/≤10ms/jitter ölçümü ve timeout yorumu teyidi bekler."
+    },
+    {
+      "id": "EK7-048",
+      "requirement": "Haberleşme full duplex olmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log",
+        "results/firmware-build.log"
+      ],
+      "remaining": "115200 8N1, 1ms servis, 100ms frame/1000ms oturum yazılımı hazır. Gerçek hat/full-duplex/≤10ms/jitter ölçümü ve timeout yorumu teyidi bekler."
+    },
+    {
+      "id": "EK7-049",
+      "requirement": "Frame Timeout 100 ms uygulanmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log",
+        "results/firmware-build.log"
+      ],
+      "remaining": "115200 8N1, 1ms servis, 100ms frame/1000ms oturum yazılımı hazır. Gerçek hat/full-duplex/≤10ms/jitter ölçümü ve timeout yorumu teyidi bekler."
+    },
+    {
+      "id": "EK7-050",
+      "requirement": "Komut işleme gecikmesi ≤10 ms sınırıyla uyumlu olmalı.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log",
+        "results/firmware-build.log"
+      ],
+      "remaining": "115200 8N1, 1ms servis, 100ms frame/1000ms oturum yazılımı hazır. Gerçek hat/full-duplex/≤10ms/jitter ölçümü ve timeout yorumu teyidi bekler."
+    },
+    {
+      "id": "EK7-051",
+      "requirement": "SUT oturumu 1000 ms timeout sonrası güvenli sonlandırma akışına geçmeli.",
+      "status": "kismi",
+      "implementation": [
+        "core/ek7.hpp",
+        "core/flight.hpp",
+        "firmware/main.cpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log",
+        "results/firmware-build.log"
+      ],
+      "remaining": "115200 8N1, 1ms servis, 100ms frame/1000ms oturum yazılımı hazır. Gerçek hat/full-duplex/≤10ms/jitter ölçümü ve timeout yorumu teyidi bekler."
+    },
+    {
+      "id": "EK7-052",
+      "requirement": "Bir bayt checksum, byte değerlerinin mod 256 toplamı esasına dayanmalı; alıcı doğrulamalı.",
+      "status": "resmi_bekliyor",
+      "implementation": [
+        "core/ek7.hpp",
+        "firmware/ek7_profile.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Resmî tablolardaki checksum ile §3 uyuşmuyor. Varsayılan prefix toplamı ve alternatif kapsamlar testli; altın vektör yok."
+    },
+    {
+      "id": "EK7-053",
+      "requirement": "Gelen dört bayttan FLOAT32 ve FLOAT32'den dört bayt dönüşümü desteklenmeli.",
+      "status": "yerel_yazilim",
+      "implementation": [
+        "core/ek7.hpp"
+      ],
+      "evidence": [
+        "results/ek7/summary.json",
+        "results/ek7/invariants.log"
+      ],
+      "remaining": "Her iki float sırası testli; resmî cihazın float sırası seçilerek profil sabitlenecek."
+    },
+    {
+      "id": "EK7-054",
+      "requirement": "Mikrodenetleyicide donanımsal veya yazılımsal UART olmalı; TTL seviyesi uygun donanımla gerçek RS232'ye çevrilmeli.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-055",
+      "requirement": "Dönüştürücü UKB tasarımına sabit entegre olmalı; MAX3232 veya uygun hazır TTL↔RS232 modülü kabul edilen örneklerdir.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-056",
+      "requirement": "Pin sırası, elektriksel kararlılık ve elektromanyetik parazit önlemleri doğru olmalı.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-057",
+      "requirement": "Test cihazına bağlanan UKB arayüzü D-SUB9 dişi olmalı; kartta doğrudan veya JST→D-SUB9 ara kablosuyla yapılabilir. Test cihazı tarafı erkek.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-058",
+      "requirement": "Yalnız RXD, TXD ve GND gerekli; TX↔RX çapraz, ortak sinyal GND doğru bağlanmalı. Diğer pinler açık bırakılabilir.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-059",
+      "requirement": "Gömülü D-SUB9 görselinde erkek: pin 2 RXD, pin 3 TXD, pin 5 GND; dişi: pin 2 TXD, pin 3 RXD, pin 5 GND gösteriliyor. Görseldeki pin numaraları fiziksel bağlantıyla eşleşmeli.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-060",
+      "requirement": "UKB kurtarma/pyro çıkışları 0–32 VDC ve 0–10 A ölçüm sınırları içinde çalışmalı; eyleyici seçimi bunları aşmamalı.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-061",
+      "requirement": "Kurtarma çıkışları test cihazı klemenslerine bağlanabilir kablo uçlarıyla hazırlanmalı; sağlamlık kontrol edilmeli.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-062",
+      "requirement": "Test düzeneği RS232 yanında Pyro 1 ve Pyro 2 kurtarma sinyal bağlantılarını da destekliyor; uygulanabilir kanallar test cihazında ölçülmeli.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    },
+    {
+      "id": "EK7-063",
+      "requirement": "SİT ve SUT öncesi RS232 ve kurtarma kablolarının sağlamlığı/doğruluğu kontrol edilmeli.",
+      "status": "donanim_bekliyor",
+      "implementation": [
+        "firmware/board.hpp",
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "evidence": [
+        "docs/EK7_DONANIM_KABUL.md"
+      ],
+      "remaining": "BOM/pin/kabul planı hazır; üretilmiş şema/kart/kablo/çıkış yükü ve ölçüm kanıtı yok. Dişi DB9 ve sabit RS232 dönüştürücü yapılmalı."
+    }
+  ]
+}

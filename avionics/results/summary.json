@@ -180,9 +180,9 @@
         "release_in_telemetry": true,
         "telemetry_5hz": true
       },
-      "release_time_s": 25.62,
-      "apogee_delay_s": 1.2734031980000005,
-      "altitude_at_command_m": 1676.642278,
+      "release_time_s": 25.74,
+      "apogee_delay_s": 1.393403197999998,
+      "altitude_at_command_m": 1675.080649,
       "tx_sent": 176,
       "tx_dropped": 0
     },
@@ -1026,11 +1026,19 @@
   "scope": "Open-loop software-in-the-loop, not electronics/RF/closed-loop recovery certification",
   "sources_sha256": {
     "core/telemetry.hpp": "a5e26b22fbcf7210c7a4d582d5a03d7637eeebb3d9b454b86f4421131443c1cd",
-    "core/flight.hpp": "cab274910ca46786824903fa5a447092c1990a0d107ec919821ceaee6e61568f",
+    "core/flight.hpp": "c0fee2f027e9eadef8cacb498133a0dc42f04e168729f4db0d294d826ef07de0",
+    "core/ek7.hpp": "47d49948c053422fc5a129513d1d46960f8e2c98d9cb93c35f5be795e4a406c1",
+    "tools/package_build.py": "ca2e447928e11079594f736b0e9aa94fb628e27b78e4274f67817164899976a2",
+    "tools/check_ek7_traceability.py": "c7285076dd9892e2b7bfa65614081f2c783639616d6d0d22f3eab083d8d70fa1",
     "tools/ExportFlight.java": "9deba724701a60d46055ab8de4e69be95e449f684aac5bc6fcb7301b48ef4153",
     "tools/decode_packet.py": "d9ffcfbcc3e645161d57648d3a16d439397c800c9fabfefdbbcf33aa284d0c52",
-    "tools/run_sil.py": "0106d9a7b061b46dcc48ea54de62dda541bca5e535ae54e76fb3230cb6bbcec4",
+    "tools/run_sil.py": "151c356436f840588f076eb1e30ca8b2b72fdd2a57c101c14cefafa5679e3b9b",
+    "tools/ek7_replay.cpp": "d3df94b2e130bff725383b42e8c3fdd1ff14fe58a2cecf110715e35e99fc6229",
     "tools/replay.cpp": "c83e5261f2a87ed6d26baab3f127ca8cfc07ef3e99bea5ad2ef89030fb336ad3",
+    "tools/run_ek7.py": "b817a9122df328990cf09c604270e65bd9ffcd277288f0b82c50db4e9e2f74e2",
+    "tools/ek7_device.py": "97d1db0a30a825d0da44f58814c55d9f5b357c7dfb7dcc38fe0cb3d916473f7a",
+    "tests/ek7_tests.cpp": "3c62b77fea2f755182da68a0c129030d93b4aa82c11532c891744c2fcdae436c",
+    "tests/test_ek7_device.py": "456f4f072d0f66e7e408e8fe0a866c4164c151ad53705824fc52ecbeebdcfa47",
     "tests/core_tests.cpp": "64464561b8658a8d28d9f35ccc74968ea69c571e6802ae277dd4204541a54f07"
   }
 }

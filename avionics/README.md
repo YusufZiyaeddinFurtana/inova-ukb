@@ -2,11 +2,13 @@
 
 Bu paket **ESP32 + BMP388 + MPU9255 + NEO-M8N + SX1278** için hazırlanmış bir geliştirme sürümüdür. Uçuş karar kodu masaüstünde ve ESP32 hedefinde aynı `core/flight.hpp` dosyasından derlenir. Ana Sky Logic V2’ye kod yüklenmez veya veri bağlantısı kurulmaz.
 
-Önce [dijital test sonuçlarını](results/SONUCLAR.md), sonra [seçimleri ve sınırları](docs/TASARIM.md) okuyun. Fiziksel ayrılma çıkışı bu sürümde kapalıdır; gösterge pini ve telemetride ayrılma isteği izlenir. Hazır uçuş sürümü veya yarışma uygunluk onayı değildir.
+Önce [EK-7’nin 63 gereksiniminin durumunu](docs/EK7_DURUM.md), [EK-7 test sonuçlarını](results/ek7/SONUCLAR.md) ve [uçuş testlerini](results/SONUCLAR.md) okuyun. [Tasarım](docs/TASARIM.md) ile [donanım kabul formu](docs/EK7_DONANIM_KABUL.md) kalan işleri açıklar. Fiziksel ayrılma çıkışı bu sürümde kapalıdır; gösterge pini ve telemetride ayrılma isteği izlenir. Hazır uçuş sürümü veya yarışma uygunluk onayı değildir.
 
 ## İçindekiler
 
 - `core/flight.hpp`: basınç filtresi, eğim kestirimi, quaternion ile IMU dönüşümü, uçuş durumları ve kararlar.
+- `core/ek7.hpp`: SİT/SUT oturumları, komut ve sensör/durum paketleri, timeout, eksen/yönelim adaptörü.
+- `tools/run_ek7.py`: bağımsız ikili paketlerle sentetik uçuş; `tools/ek7_device.py`: kart geldiğinde gerçek RS232 ön test aracı.
 - `core/telemetry.hpp`: 34 baytlık sürümlü telemetri, CRC-16 ve LoRa airtime hesabı.
 - `firmware/`: gerçek BMP388, MPU9255, NMEA GPS ve SX1278 için ESP32 geliştirme uygulaması.
 - `tools/ExportFlight.java`: OpenRocket 24.12 ile kurtarma olayları kapalı bağımsız RK4 koşusu.
@@ -49,7 +51,9 @@ cd avionics
 PLATFORMIO_CORE_DIR="$PWD/.pio-core" .venv/bin/pio run
 ```
 
-Tek hedef `esp32_bench`tir. `INOVA_PHYSICAL_OUTPUT=0` derleme sırasında zorunludur. GPIO25 sürekli LOW kalır. GPIO4, mantıksal ayrılma isteği oluştuğunda HIGH olur. UART0/USB, 115200 baud ile ikili telemetri verir; yazı çıktısı değildir.
+Tek hedef `esp32_bench`tir. `INOVA_PHYSICAL_OUTPUT=0` derleme sırasında zorunludur. GPIO25 sürekli LOW kalır. GPIO2, mantıksal ayrılma isteği oluştuğunda HIGH olur. GPIO4 TX / GPIO35 RX ayrı UART1 ile EK-7’ye ayrılır; sabit MAX3232E ve dişi DB9 gerekir. UART0/USB, 115200 baud ile ikili telemetri verir; yazı çıktısı değildir.
+
+EK-7’nin yerel profil seçimi ve seri araç kullanımını [uygulama belgesinde](docs/EK7_UYGULAMA.md) inceleyin. Checksum/float/Euler/A1 eşlemesi resmî araçla teyit bekler.
 
 Kart gelince önce PCB/pin eşleşmesi, sensör kimlikleri, eksenler, güç, bağımsız ana UKB bağlantıları ve çıkış kutuplaması doğrulanmalıdır. Bu paketteki pinler PCB tasarımı yerine geçmez.
 

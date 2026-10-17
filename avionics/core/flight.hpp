@@ -20,6 +20,8 @@ struct Quaternion {
         return {w*q.w-x*q.x-y*q.y-z*q.z, w*q.x+x*q.w+y*q.z-z*q.y,
                 w*q.y-x*q.z+y*q.w+z*q.x, w*q.z+x*q.y-y*q.x+z*q.w};
     }
+    bool finite() const { return std::isfinite(w)&&std::isfinite(x)&&std::isfinite(y)&&std::isfinite(z); }
+    double norm2() const {return w*w+x*x+y*y+z*z;}
     void normalize() { double n=std::sqrt(w*w+x*x+y*y+z*z); w/=n;x/=n;y/=n;z/=n; }
     Vec3 rotate(Vec3 v) const {
         auto r=(*this)*Quaternion{0,v.x,v.y,v.z}*Quaternion{w,-x,-y,-z};
@@ -46,6 +48,10 @@ enum Health : uint16_t { BaroBad=1, ImuBad=2, InertialLost=4, Saturated=8, Clock
 struct Config {
     double gravity=9.797; // From this .ork site; stationary magnitude also measured at boot.
     double calibration_s=2.0;
+    double imu_period_s=0.01, baro_period_s=0.02;
+    double trend_window_s=0.40, trend_min_span_s=0.28;
+    double motor_guard_s=3.5; // .ork burnout 3.059 s; must be reviewed if motor changes.
+    double status_angle_deg=45, status_lateral_m_s2=9.797, status_low_height_m=50;
     double arm_confirm_s=0.25;
     double baro_timeout_s=0.12, imu_timeout_s=0.04;
     double launch_g=1.8, launch_confirm_s=0.08;
@@ -55,20 +61,29 @@ struct Config {
     double inertial_descent_speed_m_s=-0.5, descent_confirm_s=0.10;
     double altitude_filter_tau_s=0.05;
     double launch_temperature_k=281.845; // .ork ISA launch site at 970 m MSL.
+    double launch_msl_m=970; // Known .ork launch-site reference; review for the actual site.
     double max_baro_rate_m_s=350;
+    double baro_consistency_m=25;
 };
 struct Sample {
     double time_s=0;
     double pressure_pa=0;
     Vec3 accel_m_s2{}, gyro_rad_s{}; // Body +Z is noseward; accelerometer is SPECIFIC force.
     bool baro_new=false, imu_new=false, arm=false;
+    bool attitude_new=false; // Optional measured attitude, NEVER interpreted as gyro rate.
+    Quaternion body_to_world{};
+    bool baro_altitude_new=false;
+    double altitude_msl_m=0; // Optional barometer altitude channel, same filter/guards as pressure.
 };
 struct Output {
     State state=State::Boot;
     double altitude_m=0, baro_velocity_m_s=0, inertial_velocity_m_s=0;
     double peak_m=0, tilt_deg=0;
+    double reference_pressure_pa=0;
     bool release_requested=false;
     uint16_t health=0;
+    uint8_t milestones=0; // EK-7 bit meanings; unused A1 drogue bit stays zero.
+    Quaternion body_to_world{};
 };
 
 // Same class is compiled for the desktop runner and ESP32. No Arduino dependencies.
@@ -81,24 +96,34 @@ public:
             out.health|=ClockBad;out.state=State::Fault;return out;
         }
         started=true;last_time=s.time_s;
-        bool imu_ok=s.imu_new && s.accel_m_s2.finite() && s.gyro_rad_s.finite();
+        bool orientation_ok=!s.attitude_new || (s.body_to_world.finite() && s.body_to_world.norm2()>0.99 && s.body_to_world.norm2()<1.01);
+        bool imu_ok=s.imu_new && s.accel_m_s2.finite() && orientation_ok && (s.attitude_new || s.gyro_rad_s.finite());
+        double angular_rate=s.attitude_new ? 0 : s.gyro_rad_s.norm();
+        if(s.attitude_new && imu_ok && attitude_seen && s.time_s>last_attitude_time) {
+            double dot=std::abs(attitude_input.w*s.body_to_world.w+attitude_input.x*s.body_to_world.x+attitude_input.y*s.body_to_world.y+attitude_input.z*s.body_to_world.z);
+            angular_rate=2*std::acos(std::clamp(dot,0.0,1.0))/(s.time_s-last_attitude_time);
+        }
+        if(s.attitude_new && imu_ok) {attitude_input=s.body_to_world;last_attitude_time=s.time_s;attitude_seen=true;}
         if(imu_ok && (std::max({std::abs(s.accel_m_s2.x),std::abs(s.accel_m_s2.y),std::abs(s.accel_m_s2.z)})>=15.8*cfg.gravity ||
-                       std::max({std::abs(s.gyro_rad_s.x),std::abs(s.gyro_rad_s.y),std::abs(s.gyro_rad_s.z)})>=1990*pi/180)) {
+                       (s.attitude_new ? angular_rate : std::max({std::abs(s.gyro_rad_s.x),std::abs(s.gyro_rad_s.y),std::abs(s.gyro_rad_s.z)}))>=1990*pi/180)) {
             out.health|=Saturated;imu_ok=false;
             if(inFlight()) { inertial_valid=false;out.health|=InertialLost; }
         }
-        bool baro_ok=s.baro_new && std::isfinite(s.pressure_pa) && s.pressure_pa>=30000 && s.pressure_pa<=125000;
-        if(out.state==State::Boot) { calibrate(s,imu_ok,baro_ok);return out; }
+        bool baro_ok=s.baro_new && std::isfinite(s.pressure_pa) && s.pressure_pa>=30000 && s.pressure_pa<=125000 &&
+            (!s.baro_altitude_new || (std::isfinite(s.altitude_msl_m)&&s.altitude_msl_m>=-500&&s.altitude_msl_m<=50000));
+        if(out.state==State::Boot) { calibrate(s,imu_ok,baro_ok,angular_rate);return out; }
         if(imu_ok) {
             double dt=s.time_s-last_imu;
             if(dt>cfg.imu_timeout_s && (inFlight()||out.state==State::Armed)) {
                 inertial_valid=false;out.health|=InertialLost;
                 if(out.state==State::Armed)out.state=State::Fault;
             }
-            attitude.integrate(s.gyro_rad_s-gyro_bias,std::min(dt,cfg.imu_timeout_s));
+            if(s.attitude_new) attitude=s.body_to_world;
+            else attitude.integrate(s.gyro_rad_s-gyro_bias,std::min(dt,cfg.imu_timeout_s));
             double az=attitude.rotate(s.accel_m_s2).z-measured_g;
             if(inFlight() && inertial_valid) out.inertial_velocity_m_s+=0.5*(previous_az+az)*dt;
             previous_az=az;last_imu_dt=dt;last_imu=s.time_s;last_accel=s.accel_m_s2.norm();
+            out.body_to_world=attitude;
             out.tilt_deg=std::acos(std::clamp(attitude.rotate({0,0,1}).z,-1.0,1.0))*180/pi;
         }
         if(baro_ok) baro_ok=updateBaro(s);
@@ -120,7 +145,7 @@ public:
         }
         if(out.state==State::Ready) {
             bool stationary=imu_ok && last_imu_dt<=cfg.imu_timeout_s && last_accel>0.85*measured_g &&
-                last_accel<1.15*measured_g && (s.gyro_rad_s-gyro_bias).norm()<0.10;
+                last_accel<1.15*measured_g && (s.attitude_new ? angular_rate : (s.gyro_rad_s-gyro_bias).norm())<0.10;
             if(baro_fresh && imu_fresh && stationary && !(out.health&InertialLost)) {
                 if(arm_since<0)arm_since=s.time_s;
                 if(s.time_s-arm_since>=cfg.arm_confirm_s)out.state=State::Armed;
@@ -131,7 +156,7 @@ public:
                 if(launch_since<0) {launch_since=s.time_s;launch_impulse=0;}
                 launch_impulse+=previous_az*last_imu_dt;
                 if(s.time_s-launch_since>=cfg.launch_confirm_s) {
-                    out.state=State::Boost;out.inertial_velocity_m_s=launch_impulse;coast_since=-1;
+                    out.state=State::Boost;out.inertial_velocity_m_s=launch_impulse;coast_since=-1;launch_time=s.time_s;out.milestones|=1;
                 }
             } else {launch_since=-1;launch_impulse=0;}
         }
@@ -141,8 +166,16 @@ public:
                 if(s.time_s-coast_since>=cfg.coast_confirm_s) out.state=State::Coast;
             } else coast_since=-1;
         }
+        if(inFlight()) {
+            if(s.time_s-launch_time>=cfg.motor_guard_s)out.milestones|=2;
+            if(out.altitude_m>=cfg.minimum_recovery_height_m)out.milestones|=4;
+            if(out.tilt_deg>cfg.status_angle_deg || std::hypot(s.accel_m_s2.x,s.accel_m_s2.y)>cfg.status_lateral_m_s2)out.milestones|=8;
+            if(baro_fresh && out.baro_velocity_m_s<cfg.descent_speed_m_s && out.peak_m-out.altitude_m>=cfg.drop_from_peak_m)out.milestones|=16;
+            if((out.milestones&4) && out.altitude_m<cfg.status_low_height_m)out.milestones|=64;
+        }
         if(out.state==State::Coast && baro_ok) {
-            bool descending=baro_fresh && imu_fresh && inertial_valid && count>=16 &&
+            bool descending=baro_fresh && imu_fresh && inertial_valid && trendReady(s.time_s) &&
+                s.time_s-launch_time>=cfg.motor_guard_s &&
                 out.altitude_m>=cfg.minimum_recovery_height_m &&
                 out.peak_m-out.altitude_m>=cfg.drop_from_peak_m &&
                 out.baro_velocity_m_s<cfg.descent_speed_m_s &&
@@ -150,7 +183,7 @@ public:
             if(descending) {
                 if(descent_since<0) descent_since=s.time_s;
                 if(s.time_s-descent_since>=cfg.descent_confirm_s) {
-                    out.release_requested=true;out.state=State::Descent;
+                    out.release_requested=true;out.milestones|=128;out.state=State::Descent;
                 }
             } else descent_since=-1;
         }
@@ -165,15 +198,18 @@ public:
 private:
     Config cfg;
     Output out{};
-    Quaternion attitude{};
+    Quaternion attitude{},attitude_input{};
+    bool attitude_seen=false;
+    double last_attitude_time=0,launch_time=0;
     Vec3 gyro_bias{},accel_sum{},gyro_sum{};
     double measured_g=9.797, reference_pressure=0, pressure_sum=0;
     unsigned calibration_count=0,calibration_baro_count=0;
+    unsigned calibration_msl_count=0;double msl_sum=0,reference_msl=0,msl_min=1e9,msl_max=-1e9;
     double calibration_start=-1,calibration_p_min=1e9,calibration_p_max=0;
     bool started=false,inertial_valid=true;
     double last_time=0,last_baro=-1e6,last_imu=-1e6,previous_az=0,last_accel=0,last_imu_dt=0.01;
     double arm_since=-1,launch_since=-1,launch_impulse=0,coast_since=-1,descent_since=-1,landed_since=-1;
-    std::array<double,21> times{},heights{};
+    std::array<double,65> times{},heights{}; // Holds the 0.4 s window up to 100 Hz.
     std::array<double,3> median_buffer{};
     unsigned count=0,head=0,median_count=0,median_head=0;
     double previous_raw_alt=0,filtered_alt=0;
@@ -181,32 +217,47 @@ private:
     void resetCalibration() {
         calibration_start=-1;calibration_count=calibration_baro_count=0;accel_sum={};gyro_sum={};pressure_sum=0;
         calibration_p_min=1e9;calibration_p_max=0;
+        calibration_msl_count=0;msl_sum=0;msl_min=1e9;msl_max=-1e9;
     }
-    void calibrate(const Sample& s,bool imu_ok,bool baro_ok) {
+    void calibrate(const Sample& s,bool imu_ok,bool baro_ok,double angular_rate) {
         if(baro_ok) {
             last_baro=s.time_s;pressure_sum+=s.pressure_pa;calibration_baro_count++;
             calibration_p_min=std::min(calibration_p_min,s.pressure_pa);calibration_p_max=std::max(calibration_p_max,s.pressure_pa);
+            if(s.baro_altitude_new){msl_sum+=s.altitude_msl_m;++calibration_msl_count;msl_min=std::min(msl_min,s.altitude_msl_m);msl_max=std::max(msl_max,s.altitude_msl_m);}
         }
         out.health=(s.time_s-last_imu>cfg.imu_timeout_s?ImuBad:0)|(s.time_s-last_baro>cfg.baro_timeout_s?BaroBad:0);
         if(s.time_s-last_baro>cfg.baro_timeout_s || (s.imu_new&&!imu_ok) || (s.baro_new&&!baro_ok)) {resetCalibration();return;}
         if(!imu_ok) {if(s.time_s-last_imu>cfg.imu_timeout_s)resetCalibration();return;}
         last_imu=s.time_s;
         if(s.accel_m_s2.norm()<0.85*cfg.gravity ||
-           s.accel_m_s2.norm()>1.15*cfg.gravity || s.gyro_rad_s.norm()>0.10) {resetCalibration();return;}
+           s.accel_m_s2.norm()>1.15*cfg.gravity || angular_rate>0.10) {resetCalibration();return;}
         if(calibration_start<0) calibration_start=s.time_s;
         accel_sum=accel_sum+s.accel_m_s2;gyro_sum=gyro_sum+s.gyro_rad_s;calibration_count++;
-        calibration_p_min=std::min(calibration_p_min,s.pressure_pa);calibration_p_max=std::max(calibration_p_max,s.pressure_pa);
-        if(calibration_p_max-calibration_p_min>40) {resetCalibration();return;}
-        if(s.time_s-calibration_start>=cfg.calibration_s && calibration_count>=90 && calibration_baro_count>=50) {
+        if(calibration_p_max-calibration_p_min>40 || (calibration_msl_count && msl_max-msl_min>5)) {resetCalibration();return;}
+        if(s.time_s-calibration_start>=cfg.calibration_s && calibration_count>=std::ceil(0.45*cfg.calibration_s/cfg.imu_period_s) &&
+           calibration_baro_count>=std::ceil(0.5*cfg.calibration_s/cfg.baro_period_s)) {
             Vec3 a=accel_sum*(1.0/calibration_count);
             if(a.norm()<0.9*cfg.gravity) {resetCalibration();return;}
-            measured_g=a.norm();attitude=Quaternion::alignUp(a);gyro_bias=gyro_sum*(1.0/calibration_count);
+            measured_g=a.norm();attitude=s.attitude_new?s.body_to_world:Quaternion::alignUp(a);gyro_bias=gyro_sum*(1.0/calibration_count);
+            out.body_to_world=attitude;
             reference_pressure=pressure_sum/calibration_baro_count;
+            out.reference_pressure_pa=reference_pressure;
+            reference_msl=calibration_msl_count?msl_sum/calibration_msl_count:cfg.launch_msl_m;
             last_baro=last_imu=s.time_s;out.state=State::Ready;out.health=0;
         }
     }
+    bool trendReady(double t) const {
+        unsigned n=0;double oldest=t;
+        for(unsigned i=0;i<count;i++)if(t-times[i]<=cfg.trend_window_s+1e-8){++n;oldest=std::min(oldest,times[i]);}
+        return n>=3 && t-oldest>=cfg.trend_min_span_s-1e-8;
+    }
     bool updateBaro(const Sample& s) {
         double raw=(cfg.launch_temperature_k/0.0065)*(1-std::pow(s.pressure_pa/reference_pressure,0.190294957));
+        if(s.baro_altitude_new) {
+            double supplied=s.altitude_msl_m-reference_msl;
+            if(std::abs(supplied-raw)>cfg.baro_consistency_m)return false;
+            raw=supplied;
+        }
         double dt=s.time_s-last_baro;
         if(dt<=0) return false;
         if(dt<=cfg.baro_timeout_s && count && std::abs(raw-previous_raw_alt)>2+cfg.max_baro_rate_m_s*dt) return false;
@@ -219,10 +270,10 @@ private:
         out.altitude_m=filtered_alt;
         times[head]=s.time_s;heights[head]=filtered_alt;head=(head+1)%times.size();count=std::min(count+1,static_cast<unsigned>(times.size()));
         if(count>=3) {
-            double tx=0,hy=0,xy=0,xx=0;
-            for(unsigned i=0;i<count;i++) {double t=times[i]-s.time_s;tx+=t;hy+=heights[i];xy+=t*heights[i];xx+=t*t;}
-            double denom=count*xx-tx*tx;
-            if(denom>1e-9) out.baro_velocity_m_s=(count*xy-tx*hy)/denom;
+            double tx=0,hy=0,xy=0,xx=0;unsigned n=0;
+            for(unsigned i=0;i<count;i++) {double t=times[i]-s.time_s;if(-t>cfg.trend_window_s+1e-8)continue;++n;tx+=t;hy+=heights[i];xy+=t*heights[i];xx+=t*t;}
+            double denom=n*xx-tx*tx;
+            if(denom>1e-9) out.baro_velocity_m_s=(n*xy-tx*hy)/denom;
         }
         if(inFlight()) out.peak_m=std::max(out.peak_m,out.altitude_m);
         return true;

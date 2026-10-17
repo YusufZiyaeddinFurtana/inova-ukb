@@ -220,7 +220,7 @@ def main():
         '`inhibit` senaryolarının geçmesi, arızada kurtarma yapıldığı anlamına gelmez; yanlış/kanıtsız komut üretilmediğini gösterir. Kalıcı basınç/IMU arızası ve uçuşta reset bu özgün UKB’nin kurtarma görevini engeller. Ana Sky Logic V2 bu pakette modellenmedi.',
         '', '30 Monte Carlo koşusu: sabit tohumlar, basınç/ivme/gyro gürültüsü, ±%1 ivme ölçeği, ±%0,5 gyro ölçeği ve 0–80 ms basınç gecikmesi. Bu aralıklar ölçülmüş hata dağılımları değildir.',
         '', 'Sanal sensörler analog bant genişliği, PCB, güç, montaj titreşimi, RF menzili ve elektromıknatısı doğrulamaz. OpenRocket yeniden örnekleme/enterpolasyon hatası vardır. Kurtarma açılması bu koşuya geri beslenmez. Komut sonrası yörünge gerçek iniş öngörüsü değildir.',
-        '', 'ESP32 hedef derlemesi ayrıca `firmware-build.log` ile değerlendirilir; masaüstü testinin geçmesi hedef derlemesinin geçtiği anlamına gelmez. Resmî TEKNOFEST EK-7 protokolü bu sürümde uygulanmadı.']
+        '', 'ESP32 hedef derlemesi ayrıca `firmware-build.log` ile değerlendirilir; masaüstü testinin geçmesi hedef derlemesinin geçtiği anlamına gelmez. EK-7 yerel protokol profili ve SİT/SUT testleri ayrıca `ek7/SONUCLAR.md` dosyasındadır; resmî cihaz uyumluluğu henüz doğrulanmadı.']
     (ROOT/'results/SONUCLAR.md').write_text('\n'.join(lines)+'\n')
     print(f'RESULT: {passed}/{total}')
     return 0 if passed==total else 1

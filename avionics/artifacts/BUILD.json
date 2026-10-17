@@ -1,29 +1,50 @@
 {
   "target": "esp32_bench",
   "physical_release_output": false,
-  "firmware_sha256": "6757ed84fbc8dc93528ec7fef85b4005e115434814d95bbede0a5185901a4bc6",
+  "firmware_sha256": "a8da18cd2569a17be09f5b43a414ea7cf74899fb0ead87031e86fa15cb93034c",
   "sources": {
+    "core/ek7.hpp": "47d49948c053422fc5a129513d1d46960f8e2c98d9cb93c35f5be795e4a406c1",
+    "core/flight.hpp": "c0fee2f027e9eadef8cacb498133a0dc42f04e168729f4db0d294d826ef07de0",
     "core/telemetry.hpp": "a5e26b22fbcf7210c7a4d582d5a03d7637eeebb3d9b454b86f4421131443c1cd",
-    "core/flight.hpp": "cab274910ca46786824903fa5a447092c1990a0d107ec919821ceaee6e61568f",
+    "firmware/board.hpp": "862deb3d84b3ebcb14138a027bde35639797e0220937907c2118cc3f2c6d0848",
+    "firmware/ek7_profile.hpp": "3cad0fda419ace486ca6f64c3534f08db1b774c4f63a6ffa898c0ea9a462b695",
+    "firmware/main.cpp": "d8646f66a980e0e0a500e26eaf99a31ab616c9544c9f54ad95f2f785ef0d11fe",
     "firmware/mpu9255.hpp": "ec9ffdf8fbf7a3c312c4b3ebffb997869e20e9a0e0a3c1f0058134c2176a153e",
-    "firmware/board.hpp": "7822c9fa086f4df61922b1a9c89252579124abc63af005f979a00575e7866d0e",
-    "firmware/main.cpp": "6e0f6e2868af93ee74f131db101b99b1fdfcf776b0906dfe7d8d2264069565a7",
     "tools/ExportFlight.java": "9deba724701a60d46055ab8de4e69be95e449f684aac5bc6fcb7301b48ef4153",
+    "tools/check_ek7_traceability.py": "c7285076dd9892e2b7bfa65614081f2c783639616d6d0d22f3eab083d8d70fa1",
     "tools/decode_packet.py": "d9ffcfbcc3e645161d57648d3a16d439397c800c9fabfefdbbcf33aa284d0c52",
-    "tools/run_sil.py": "0106d9a7b061b46dcc48ea54de62dda541bca5e535ae54e76fb3230cb6bbcec4",
+    "tools/ek7_device.py": "97d1db0a30a825d0da44f58814c55d9f5b357c7dfb7dcc38fe0cb3d916473f7a",
+    "tools/ek7_replay.cpp": "d3df94b2e130bff725383b42e8c3fdd1ff14fe58a2cecf110715e35e99fc6229",
+    "tools/package_build.py": "ca2e447928e11079594f736b0e9aa94fb628e27b78e4274f67817164899976a2",
     "tools/replay.cpp": "c83e5261f2a87ed6d26baab3f127ca8cfc07ef3e99bea5ad2ef89030fb336ad3",
+    "tools/run_ek7.py": "b817a9122df328990cf09c604270e65bd9ffcd277288f0b82c50db4e9e2f74e2",
+    "tools/run_sil.py": "151c356436f840588f076eb1e30ca8b2b72fdd2a57c101c14cefafa5679e3b9b",
     "tests/core_tests.cpp": "64464561b8658a8d28d9f35ccc74968ea69c571e6802ae277dd4204541a54f07",
+    "tests/ek7_tests.cpp": "3c62b77fea2f755182da68a0c129030d93b4aa82c11532c891744c2fcdae436c",
+    "tests/test_ek7_device.py": "456f4f072d0f66e7e408e8fe0a866c4164c151ad53705824fc52ecbeebdcfa47",
     "platformio.ini": "4adaf2f3914f75925c92f3e17c3e79796ccbb5ed7cd822819601955db8fb6d7a",
-    "requirements.txt": "959269310efba81d9e008bfc887080a924d7b730abdc62e5e2ccc7d05139ae3d",
-    "Makefile": "31c0f23a054a4f4fa35a19807c262f7af980da65cad99f7b855791768ec3310a"
+    "requirements.txt": "17a4aaf780814cb9c0e2fd9877de32a47dfca7bc9eb9e70bde3756b83b77d871",
+    "Makefile": "d6254bd909e2514ff1458ef8c891ee2d7142a6644dfe414f54c50f90552cde60"
   },
-  "ram": "RAM:   [=         ]   7.3% (used 23972 bytes from 327680 bytes)",
-  "flash": "Flash: [==        ]  25.0% (used 327433 bytes from 1310720 bytes)",
+  "ram": "RAM:   [=         ]   7.1% (used 23300 bytes from 327680 bytes)",
+  "flash": "Flash: [===       ]  25.8% (used 338025 bytes from 1310720 bytes)",
   "validation": {
     "native_scenarios": 55,
     "passed": 55,
-    "sanitizers": "ASan + UBSan: core invariants and nominal replay passed",
+    "ek7_scenarios": 18,
+    "ek7_passed": 18,
+    "ek7_invariant_groups": 23,
+    "independent_host_codec_tests": 7,
+    "sanitizers": "ASan + UBSan: core and EK7 invariants passed",
     "hardware_execution": false,
-    "official_EK7_protocol_implemented": false
+    "official_EK7_compatibility_verified": false,
+    "EK7_local_protocol_profile_implemented": true
+  },
+  "ek7_profile": {
+    "floats": "little",
+    "data_status_checksum": "sum(header+payload) mod256",
+    "commands": "literal Table1",
+    "synthetic_input_hz": 10,
+    "official_compatibility_verified": false
   }
 }

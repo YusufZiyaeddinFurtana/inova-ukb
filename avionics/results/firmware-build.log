@@ -21,12 +21,88 @@ Dependency Graph
 |-- Wire @ 2.0.0
 Building in release mode
 Compiling .pio/build/esp32_bench/src/main.cpp.o
+Building .pio/build/esp32_bench/bootloader.bin
+Generating partitions .pio/build/esp32_bench/partitions.bin
+Compiling .pio/build/esp32_bench/libde2/Wire/Wire.cpp.o
+esptool.py v4.9.0
+Creating esp32 image...
+Merged 1 ELF section
+Successfully created esp32 image.
+Compiling .pio/build/esp32_bench/lib59c/SPI/SPI.cpp.o
+Compiling .pio/build/esp32_bench/lib4aa/Adafruit BusIO/Adafruit_BusIO_Register.cpp.o
+Compiling .pio/build/esp32_bench/lib4aa/Adafruit BusIO/Adafruit_GenericDevice.cpp.o
+Compiling .pio/build/esp32_bench/lib4aa/Adafruit BusIO/Adafruit_I2CDevice.cpp.o
+Compiling .pio/build/esp32_bench/lib4aa/Adafruit BusIO/Adafruit_SPIDevice.cpp.o
+Compiling .pio/build/esp32_bench/lib513/Adafruit BMP3XX Library/Adafruit_BMP3XX.cpp.o
+Compiling .pio/build/esp32_bench/lib513/Adafruit BMP3XX Library/bmp3.c.o
+Compiling .pio/build/esp32_bench/lib26d/TinyGPSPlus/TinyGPS++.cpp.o
+Compiling .pio/build/esp32_bench/lib50a/LoRa/LoRa.cpp.o
+Archiving .pio/build/esp32_bench/lib59c/libSPI.a
+Archiving .pio/build/esp32_bench/libde2/libWire.a
+Indexing .pio/build/esp32_bench/lib59c/libSPI.a
+Indexing .pio/build/esp32_bench/libde2/libWire.a
+Compiling .pio/build/esp32_bench/FrameworkArduino/Esp.cpp.o
+Archiving .pio/build/esp32_bench/lib4aa/libAdafruit BusIO.a
+Compiling .pio/build/esp32_bench/FrameworkArduino/FirmwareMSC.cpp.o
+Archiving .pio/build/esp32_bench/lib513/libAdafruit BMP3XX Library.a
+Indexing .pio/build/esp32_bench/lib4aa/libAdafruit BusIO.a
+Compiling .pio/build/esp32_bench/FrameworkArduino/FunctionalInterrupt.cpp.o
+Archiving .pio/build/esp32_bench/lib26d/libTinyGPSPlus.a
+Indexing .pio/build/esp32_bench/lib513/libAdafruit BMP3XX Library.a
+Compiling .pio/build/esp32_bench/FrameworkArduino/HWCDC.cpp.o
+Indexing .pio/build/esp32_bench/lib26d/libTinyGPSPlus.a
+Compiling .pio/build/esp32_bench/FrameworkArduino/HardwareSerial.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/IPAddress.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/IPv6Address.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/MD5Builder.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/Print.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/Stream.cpp.o
+Archiving .pio/build/esp32_bench/lib50a/libLoRa.a
+Compiling .pio/build/esp32_bench/FrameworkArduino/StreamString.cpp.o
+Indexing .pio/build/esp32_bench/lib50a/libLoRa.a
+Compiling .pio/build/esp32_bench/FrameworkArduino/Tone.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/USB.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/USBCDC.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/USBMSC.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/WMath.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/WString.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/base64.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/cbuf.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-adc.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-bt.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-cpu.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-dac.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-gpio.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-i2c-slave.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-i2c.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-ledc.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-matrix.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-misc.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-psram.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-rgb-led.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-rmt.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-sigmadelta.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-spi.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-time.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-timer.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-tinyusb.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-touch.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/esp32-hal-uart.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/firmware_msc_fat.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/libb64/cdecode.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/libb64/cencode.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/main.cpp.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/stdlib_noniso.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/wiring_pulse.c.o
+Compiling .pio/build/esp32_bench/FrameworkArduino/wiring_shift.c.o
+Archiving .pio/build/esp32_bench/libFrameworkArduino.a
+Indexing .pio/build/esp32_bench/libFrameworkArduino.a
 Linking .pio/build/esp32_bench/firmware.elf
 Retrieving maximum program size .pio/build/esp32_bench/firmware.elf
 Checking size .pio/build/esp32_bench/firmware.elf
 Advanced Memory Usage is available via "PlatformIO Home > Project Inspect"
-RAM:   [=         ]   7.3% (used 23972 bytes from 327680 bytes)
-Flash: [==        ]  25.0% (used 327433 bytes from 1310720 bytes)
+RAM:   [=         ]   7.1% (used 23300 bytes from 327680 bytes)
+Flash: [===       ]  25.8% (used 338025 bytes from 1310720 bytes)
 Building .pio/build/esp32_bench/firmware.bin with action:
   "$PYTHONEXE" "$OBJCOPY" --chip esp32 elf2image --flash_mode ${__get_board_flash_mode(__env__)} --flash_freq ${__get_board_f_image(__env__)} --flash_size 4MB --elf-sha256-offset 0xb0 -o $TARGET $SOURCES
 Building .pio/build/esp32_bench/firmware.bin
@@ -34,4 +110,4 @@ esptool.py v4.9.0
 Creating esp32 image...
 Merged 2 ELF sections
 Successfully created esp32 image.
-========================= [SUCCESS] Took 2.47 seconds =========================
+========================= [SUCCESS] Took 5.42 seconds =========================
