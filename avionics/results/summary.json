@@ -1,0 +1,1036 @@
+{
+  "ork_sha256": "c84d12cd934ecfa5754b028fbb2d82a5292ff269afdf506df09524596f5c988f",
+  "saved_flight": {
+    "maxaltitude": "1684.121",
+    "maxvelocity": "181.574",
+    "maxacceleration": "72.887",
+    "maxmach": "0.541",
+    "timetoapogee": "19.327",
+    "flighttime": "223.113",
+    "groundhitvelocity": "10.246",
+    "launchrodvelocity": "29.141",
+    "deploymentvelocity": "11.114",
+    "optimumdelay": "16.318"
+  },
+  "independent_run": {
+    "apogee_m": 1684.548186279,
+    "apogee_s": 19.346596802,
+    "seed": 20261017,
+    "recovery": "suppressed",
+    "duration_s": 30
+  },
+  "nominal": {
+    "name": "nominal",
+    "expected": "deploy",
+    "passed": true,
+    "checks": {
+      "release_in_window": true,
+      "release_stays_latched": true,
+      "telemetry_decode": true,
+      "telemetry_sequence": true,
+      "release_in_telemetry": true,
+      "telemetry_5hz": true
+    },
+    "release_time_s": 25.06,
+    "apogee_delay_s": 0.7134031979999982,
+    "altitude_at_command_m": 1682.072234,
+    "tx_sent": 176,
+    "tx_dropped": 0
+  },
+  "passed": 55,
+  "total": 55,
+  "cases": [
+    {
+      "name": "nominal",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "no_noise",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.08,
+      "apogee_delay_s": 0.7334031979999978,
+      "altitude_at_command_m": 1681.931062,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "gps_loss",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true,
+        "gps_invalid_flag": true,
+        "decision_independent_of_telemetry": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "radio_stuck",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "radio_loss_injected": true,
+        "decision_independent_of_telemetry": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 40,
+      "tx_dropped": 136
+    },
+    {
+      "name": "baro_spike",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "baro_nan",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "baro_gap_short",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "baro_gap_apogee",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.62,
+      "apogee_delay_s": 1.2734031980000005,
+      "altitude_at_command_m": 1676.642278,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "imu_gap_short",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "baro_false_descent",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "accel_bias_in_flight",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.06,
+      "apogee_delay_s": 0.7134031979999982,
+      "altitude_at_command_m": 1682.072234,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "unarmed",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "baro_dead",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true,
+        "barometer_stale_reported": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "baro_frozen",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "imu_dead",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true,
+        "inertial_fault_reported": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "imu_gap_armed",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "late_arm",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "accel_saturated",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true,
+        "saturation_reported": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "gyro_saturated",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true,
+        "saturation_reported": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "boot_invalid",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "arm_lost",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "reset_in_flight",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "clock_reversed",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "clock_fault_reported": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 175,
+      "tx_dropped": 0
+    },
+    {
+      "name": "pad_only",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "pad_jolt",
+      "expected": "inhibit",
+      "passed": true,
+      "checks": {
+        "no_release": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "no_release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": null,
+      "apogee_delay_s": null,
+      "altitude_at_command_m": null,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_00",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_01",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_02",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.12,
+      "apogee_delay_s": 0.7734031980000005,
+      "altitude_at_command_m": 1681.636985,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_03",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.08,
+      "apogee_delay_s": 0.7334031979999978,
+      "altitude_at_command_m": 1681.931062,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_04",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_05",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.14,
+      "apogee_delay_s": 0.793403198,
+      "altitude_at_command_m": 1681.484081,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_06",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.08,
+      "apogee_delay_s": 0.7334031979999978,
+      "altitude_at_command_m": 1681.931062,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_07",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.14,
+      "apogee_delay_s": 0.793403198,
+      "altitude_at_command_m": 1681.484081,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_08",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.18,
+      "apogee_delay_s": 0.8334031979999992,
+      "altitude_at_command_m": 1681.166542,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_09",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.14,
+      "apogee_delay_s": 0.793403198,
+      "altitude_at_command_m": 1681.484081,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_10",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.08,
+      "apogee_delay_s": 0.7334031979999978,
+      "altitude_at_command_m": 1681.931062,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_11",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.12,
+      "apogee_delay_s": 0.7734031980000005,
+      "altitude_at_command_m": 1681.636985,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_12",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.08,
+      "apogee_delay_s": 0.7334031979999978,
+      "altitude_at_command_m": 1681.931062,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_13",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_14",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.08,
+      "apogee_delay_s": 0.7334031979999978,
+      "altitude_at_command_m": 1681.931062,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_15",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_16",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_17",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.14,
+      "apogee_delay_s": 0.793403198,
+      "altitude_at_command_m": 1681.484081,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_18",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.08,
+      "apogee_delay_s": 0.7334031979999978,
+      "altitude_at_command_m": 1681.931062,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_19",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_20",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_21",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_22",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_23",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.18,
+      "apogee_delay_s": 0.8334031979999992,
+      "altitude_at_command_m": 1681.166542,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_24",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_25",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.2,
+      "apogee_delay_s": 0.8534031979999988,
+      "altitude_at_command_m": 1681.001908,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_26",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.12,
+      "apogee_delay_s": 0.7734031980000005,
+      "altitude_at_command_m": 1681.636985,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_27",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.12,
+      "apogee_delay_s": 0.7734031980000005,
+      "altitude_at_command_m": 1681.636985,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_28",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.1,
+      "apogee_delay_s": 0.7534031980000009,
+      "altitude_at_command_m": 1681.785979,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    },
+    {
+      "name": "monte_carlo_29",
+      "expected": "deploy",
+      "passed": true,
+      "checks": {
+        "release_in_window": true,
+        "release_stays_latched": true,
+        "telemetry_decode": true,
+        "telemetry_sequence": true,
+        "release_in_telemetry": true,
+        "telemetry_5hz": true
+      },
+      "release_time_s": 25.12,
+      "apogee_delay_s": 0.7734031980000005,
+      "altitude_at_command_m": 1681.636985,
+      "tx_sent": 176,
+      "tx_dropped": 0
+    }
+  ],
+  "scope": "Open-loop software-in-the-loop, not electronics/RF/closed-loop recovery certification",
+  "sources_sha256": {
+    "core/telemetry.hpp": "a5e26b22fbcf7210c7a4d582d5a03d7637eeebb3d9b454b86f4421131443c1cd",
+    "core/flight.hpp": "cab274910ca46786824903fa5a447092c1990a0d107ec919821ceaee6e61568f",
+    "tools/ExportFlight.java": "9deba724701a60d46055ab8de4e69be95e449f684aac5bc6fcb7301b48ef4153",
+    "tools/decode_packet.py": "d9ffcfbcc3e645161d57648d3a16d439397c800c9fabfefdbbcf33aa284d0c52",
+    "tools/run_sil.py": "0106d9a7b061b46dcc48ea54de62dda541bca5e535ae54e76fb3230cb6bbcec4",
+    "tools/replay.cpp": "c83e5261f2a87ed6d26baab3f127ca8cfc07ef3e99bea5ad2ef89030fb336ad3",
+    "tests/core_tests.cpp": "64464561b8658a8d28d9f35ccc74968ea69c571e6802ae277dd4204541a54f07"
+  }
+}

@@ -1,0 +1,23 @@
+20:06:56.122 [DatabaseLoadingThread] INFO info.openrocket.core.database.MotorDatabaseLoader -- Starting reading serialized motor database
+20:06:56.125 [DatabaseLoadingThread] DEBUG info.openrocket.core.util.JarUtil -- Found jar file using codeSource
+20:06:56.127 [DatabaseLoadingThread] DEBUG info.openrocket.core.database.MotorDatabaseLoader -- Reading motors from file datafiles/thrustcurves/thrustcurves.ser
+20:06:56.136 [main] INFO info.openrocket.core.startup.providers.TranslatorProvider -- Using default locale en_TR
+20:06:56.143 [main] INFO info.openrocket.core.startup.providers.TranslatorProvider -- Set up translation for locale en_TR, debug.currentFile=messages.properties
+20:06:56.164 [main] INFO info.openrocket.core.file.openrocket.importt.OpenRocketLoader -- Loading .ork file
+20:06:56.275 [main] DEBUG info.openrocket.core.file.DatabaseMotorFinder -- type Reloadable, manufacturer AeroTech, designation L1256WS, diameter NaN, length NaN, digest 0b6478d63abe3db08877f95b3cecf35d, warnings Messages[]
+20:06:56.288 [DatabaseLoadingThread] INFO info.openrocket.core.database.MotorDatabaseLoader -- Ending reading serialized motor database, motorCount=1936
+20:06:56.289 [DatabaseLoadingThread] INFO info.openrocket.core.database.MotorDatabaseLoader -- Starting reading user-defined motors
+20:06:56.291 [DatabaseLoadingThread] INFO info.openrocket.core.database.MotorDatabaseLoader -- Ending reading user-defined motors, motorCount=1936
+20:06:56.293 [main] DEBUG info.openrocket.core.file.DatabaseMotorFinder -- motor is L1256WS
+20:06:56.349 [main] DEBUG info.openrocket.core.simulation.FlightData -- Computed flight values: maxAltitude=1684.121 maxVelocity=181.574 maxAcceleration=72.887 maxMachNumber=0.541 timeToApogee=19.327 flightTime=223.113 groundHitVelocity=10.246 launchRodVelocity=29.141 optimumDelay=16.317500000000145
+20:06:56.353 [main] INFO info.openrocket.core.file.openrocket.importt.OpenRocketLoader -- Loading done
+20:06:56.356 [main] DEBUG info.openrocket.core.document.Simulation -- Simulation: calling simulator
+20:06:56.360 [main] INFO info.openrocket.core.simulation.BasicEventSimulationEngine -- >>Starting simulation of branch: Devam Et
+20:06:56.364 [main] INFO info.openrocket.core.simulation.BasicEventSimulationEngine -- Queueing Ignition Event for:               Body Tube/5d77a0f8 / L1256WS - Armed @: 0.0
+20:06:56.365 [main] INFO info.openrocket.core.simulation.BasicEventSimulationEngine --   Igniting motor:               Body Tube/5d77a0f8 / L1256WS - Armed @0.0
+20:06:56.692 [main] DEBUG info.openrocket.core.simulation.BasicEventSimulationEngine --  detected Motor Burnout for motor L1256WS@ 3.059  on stage 0: Devam Et
+20:06:57.525 [main] ERROR info.openrocket.core.simulation.BasicEventSimulationEngine -- Simulation hit max time (1200.0s): aborting.
+20:06:57.525 [main] INFO info.openrocket.core.simulation.BasicEventSimulationEngine -- <<Finished simulating branch: Devam Et    curTime:30.006596801746994    finTime:29.996596801746993
+20:06:57.526 [main] DEBUG info.openrocket.core.simulation.FlightData -- Computed flight values: maxAltitude=1684.5481862793006 maxVelocity=181.53103893003933 maxAcceleration=72.8837820115195 maxMachNumber=0.5412306567673791 timeToApogee=19.346596801745328 flightTime=29.996596801746993 groundHitVelocity=NaN launchRodVelocity=28.584431502651356 optimumDelay=16.327596801745333
+20:06:57.526 [main] DEBUG info.openrocket.core.document.Simulation -- Simulation: returning from simulator, simulation took 1170ms
+APOGEE=1684.5481862793006 WARNINGS=Messages[]

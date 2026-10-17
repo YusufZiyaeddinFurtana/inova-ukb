@@ -1,0 +1,7 @@
+/.chart-data-*/
+/tmp/
+/output/
+/docs/
+/tools/
+/AGENTS.md
+.DS_Store

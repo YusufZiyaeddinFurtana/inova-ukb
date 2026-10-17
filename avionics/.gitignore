@@ -1,0 +1,7 @@
+build/
+.pio/
+.pio-core/
+.venv/
+__pycache__/
+docs/EK7-2026.docx
+docs/EK7-2026.txt
